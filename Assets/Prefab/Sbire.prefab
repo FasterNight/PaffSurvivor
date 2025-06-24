@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2522995690607219223}
   - component: {fileID: 5105776132725429887}
   - component: {fileID: 1570288452996000123}
-  - component: {fileID: 6489519014777554747}
+  - component: {fileID: 5737280561227916398}
   m_Layer: 0
   m_Name: Sbire
   m_TagString: Ennemie
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   damageInterval: 1
---- !u!54 &6489519014777554747
+--- !u!54 &5737280561227916398
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0

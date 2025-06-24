@@ -27,15 +27,11 @@ public class EnemyFollowPlayer : MonoBehaviour
     {
         if (target == null) return;
 
+        // Direction du joueur
         Vector3 direction = target.position - transform.position;
-        direction.y = 0; // on reste au sol
         direction.Normalize();
 
+        // Déplacement
         transform.position += direction * speed * Time.deltaTime;
-
-        if (direction.sqrMagnitude > 0.001f)
-        {
-            transform.forward = direction;
-        }
     }
 }
