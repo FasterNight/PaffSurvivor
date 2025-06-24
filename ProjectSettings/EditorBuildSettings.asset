@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ennemie.unity
     guid: 67b0328a657d1a048b4466dc4c2de986
+  - enabled: 1
+    path: Assets/Scenes/Buff.unity
+    guid: 871d0a29619ed3f4a8320b448201beea
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
