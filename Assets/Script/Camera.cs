@@ -18,12 +18,32 @@ public class Camera : MonoBehaviour
     private Vector3 currentVelocity;
     private float orthographicSize;
     private float aspect;
+    internal static Camera main;
+    internal bool orthographic;
 
     void Start()
     {
+        if (GameManager.Instance != null && GameManager.Instance.playerInstance != null)
+        {
+            Transform model = GameManager.Instance.playerInstance.transform.Find("PlayerModel");
+            if (model != null)
+            {
+                player = model;
+            }
+            else
+            {
+                Debug.LogError("PlayerModel non trouvé dans l'objet Player !");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameManager ou playerInstance est nul !");
+        }
+
+        // Initialisation de la caméra
         cameraHalfHeight = targetCamera.orthographicSize;
         cameraHalfWidth = cameraHalfHeight * targetCamera.aspect;
-        lastPlayerPosition = player.position;
+        lastPlayerPosition = player != null ? player.position : Vector3.zero;
     }
 
     void LateUpdate()

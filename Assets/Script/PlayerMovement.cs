@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Vector2 mapSize = new Vector2(200f, 200f);
 
+    void Start()
+    {
+        transform.position = new Vector3(0f, 1.1f, 0f);
+    }
+
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
