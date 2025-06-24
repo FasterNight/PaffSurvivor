@@ -211,12 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4195be406ed2a9444a403d07a174f055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3
+  power: 9
   SawModel: {fileID: 8548078424496188819, guid: e4f369cf321cc0145a110119f10f9bab,
     type: 3}
   player: {fileID: 7627806469243016621}
   cooldownTime: 2
-  ActiveTime: 2
-  radius: 2
+  ActiveTime: 5
+  radius: 5
   orbitSpeed: 100
   selfRotationSpeed: 300

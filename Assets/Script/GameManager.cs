@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
     public GameObject playerPrefab;
     public Vector3 spawnPosition = new Vector3(0f, 0f, 0f);
