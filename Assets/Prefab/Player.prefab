@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6014418301901176128}
   - component: {fileID: 1756832832513100548}
   - component: {fileID: 1808386236191713418}
+  - component: {fileID: 3275575045872580973}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Player
@@ -198,3 +199,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   mapSize: {x: 197, y: 197}
+--- !u!114 &3275575045872580973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5097423841088013889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195be406ed2a9444a403d07a174f055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 3
+  SawModel: {fileID: 8548078424496188819, guid: e4f369cf321cc0145a110119f10f9bab,
+    type: 3}
+  player: {fileID: 7627806469243016621}
+  cooldownTime: 2
+  ActiveTime: 2
+  radius: 2
+  orbitSpeed: 100
+  selfRotationSpeed: 300
