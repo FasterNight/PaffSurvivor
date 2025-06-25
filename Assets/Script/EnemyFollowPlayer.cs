@@ -1,37 +1,48 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public class EnemyFollowPlayer : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     public float speed = 3f;
+    public float pushForce = 5f;
+    public float attackRange = 1.5f;
+    public float separationDistance = 1f;
+    public float separationStrength = 2f;
 
-    private Transform target;
+    private Transform player;
+    private Rigidbody rb;
 
     void Start()
     {
         if (GameManager.Instance != null && GameManager.Instance.playerInstance != null)
         {
-            Transform player = GameManager.Instance.playerInstance.transform;
-            Transform playerModel = player.Find("PlayerModel");
-
-            // Si PlayerModel existe, on le cible, sinon le parent
-            target = playerModel != null ? playerModel : player;
+            Transform playerTransform = GameManager.Instance.playerInstance.transform;
+            Transform playerModel = playerTransform.Find("PlayerModel");
+            player = playerModel != null ? playerModel : playerTransform;
         }
-
-        if (target == null)
+        else
         {
-            Debug.LogError("Target du joueur non trouvée pour l’ennemi !");
+            Debug.LogError("ZombieFollow : joueur introuvable !");
         }
+        rb = GetComponentInChildren<Rigidbody>();
     }
+
 
     void Update()
     {
-        if (target == null) return;
+        if (player == null) return;
 
-        // Direction du joueur
-        Vector3 direction = target.position - transform.position;
-        direction.Normalize();
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // Déplacement
-        transform.position += direction * speed * Time.deltaTime;
+        if (distanceToPlayer > attackRange)
+        {
+            FollowPlayer();
+        }
+    }
+
+    void FollowPlayer()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 move = direction * speed * Time.deltaTime;
+        rb.MovePosition(rb.position + move);
     }
 }
