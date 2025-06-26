@@ -4,32 +4,60 @@ using UnityEngine;
 public class EnemyDamageOnTouch : MonoBehaviour
 {
     public int damage = 2;
+    public float damageInterval = 1f;
 
-    private void OnCollisionEnter(Collision collision)
+    private bool isTouchingPlayer = false;
+    private PlayerStats playerStats;
+    private float damageTimer = 0f;
+
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (isTouchingPlayer && playerStats != null)
         {
-            PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
-            if (health != null)
+            damageTimer += Time.deltaTime;
+            if (damageTimer >= damageInterval)
             {
-                health.TakeDamage(damage);
+                playerStats.TakeDamage(damage);
+                damageTimer = 0f;
             }
-
-            Destroy(gameObject); 
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerStats = collision.gameObject.GetComponent<PlayerStats>();
+            isTouchingPlayer = true;
+            damageTimer = damageInterval; // tape instantanément au contact
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isTouchingPlayer = false;
+            playerStats = null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PlayerHealth health = other.GetComponent<PlayerHealth>();
-            if (health != null)
-            {
-                health.TakeDamage(damage);
-            }
+            playerStats = other.GetComponent<PlayerStats>();
+            isTouchingPlayer = true;
+            damageTimer = damageInterval;
+        }
+    }
 
-            Destroy(gameObject);
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isTouchingPlayer = false;
+            playerStats = null;
         }
     }
 }
