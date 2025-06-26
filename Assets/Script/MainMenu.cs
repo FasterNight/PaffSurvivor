@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Remplace "GameScene" par le nom exact de ta scène
-        SceneManager.LoadScene("Buff");
+        SceneManager.LoadScene("Ennemie");
     }
 
     // Appelé quand on clique sur "Quitter"
