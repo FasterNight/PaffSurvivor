@@ -119,6 +119,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &80849068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2810722012212527738, guid: e4f369cf321cc0145a110119f10f9bab,
+    type: 3}
+  m_PrefabInstance: {fileID: 987379462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &80849069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80849068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4195be406ed2a9444a403d07a174f055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 10
 --- !u!1 &221579366
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +622,83 @@ MonoBehaviour:
   knob: {fileID: 1938801363}
   player: {fileID: 1146185072966977384, guid: f8b348f63e7feb647a33286f8e9685c6, type: 3}
   moveSpeed: 5
+--- !u!1001 &987379462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.632626
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.049999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7792828
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9553417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.29550353
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 34.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783932743310852737, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810722012212527738, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_Name
+      value: Saw
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904214217034974197, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.263
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2810722012212527738, guid: e4f369cf321cc0145a110119f10f9bab,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80849069}
+  m_SourcePrefab: {fileID: 100100000, guid: e4f369cf321cc0145a110119f10f9bab, type: 3}
 --- !u!1 &1042309049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,3 +1535,4 @@ SceneRoots:
   - {fileID: 2119456241}
   - {fileID: 472639679}
   - {fileID: 1890052170}
+  - {fileID: 987379462}

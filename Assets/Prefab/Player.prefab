@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2814781502612768519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.37413, y: 0, z: -66.13784}
+  m_LocalPosition: {x: 79.5965, y: 0, z: -62.88629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,14 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4195be406ed2a9444a403d07a174f055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3
-  SawModel: {fileID: 8548078424496188819, guid: e4f369cf321cc0145a110119f10f9bab,
-    type: 3}
-  cooldownTime: 2
-  ActiveTime: 2
-  radius: 5.24
-  orbitSpeed: 100
-  selfRotationSpeed: 300
+  RotationSpeed: 10
 --- !u!1001 &8849893473579508133
 PrefabInstance:
   m_ObjectHideFlags: 0
