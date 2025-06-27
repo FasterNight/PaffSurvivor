@@ -203,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 3265037317432396975, guid: 47fdb639051a1404fbe16b49cfc001aa,
         type: 3}
       propertyPath: m_TagString
-      value: Zombie
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3318814381510319632, guid: 47fdb639051a1404fbe16b49cfc001aa,
         type: 3}
@@ -450,6 +450,8 @@ MonoBehaviour:
   attackRange: 1.5
   separationDistance: 3
   separationStrength: 0.1
+  MaxHealth: 1
+  Xp: {fileID: 309818741126473623, guid: 78030516e5f240f47b7e406fea097ca7, type: 3}
 --- !u!95 &5410167687230212358
 Animator:
   serializedVersion: 7

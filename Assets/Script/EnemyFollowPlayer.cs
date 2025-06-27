@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
@@ -7,7 +8,10 @@ public class Zombie : MonoBehaviour
     public float attackRange = 1.5f;
     public float separationDistance = 1.2f;
     public float separationStrength = 1.5f;
+    public float MaxHealth = 100f;
+    public GameObject Xp;
 
+    private float currentHealth;
     private Transform player;
     private Rigidbody rb;
     private Animator animator;
@@ -16,6 +20,7 @@ public class Zombie : MonoBehaviour
 
     void Start()
     {
+        currentHealth = MaxHealth;
         if (GameManager.Instance != null && GameManager.Instance.playerInstance != null)
         {
             Transform playerTransform = GameManager.Instance.playerInstance.transform;
@@ -88,15 +93,28 @@ public class Zombie : MonoBehaviour
 
         return separation;
     }
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
 
     public void Die()
     {
-        if (isDead) return;
-
         isDead = true;
         rb.velocity = Vector3.zero;
         rb.isKinematic = true; 
         if (animator) animator.SetBool("Dead", true);
+
+        int orbCount = Random.Range(0, 4); // 0 à 3 inclus
+
+        for (int i = 0; i < orbCount; i++)
+        {
+            GameObject orb = Instantiate(Xp, transform.position, Quaternion.identity);
+        }
 
         Destroy(gameObject, 3f);
     }

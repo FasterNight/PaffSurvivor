@@ -7,8 +7,6 @@ public class Saw : MonoBehaviour
 {
     [Range(0, 10)] public int power = 0;
     public GameObject SawModel;
-    public Transform player;
-
     public float cooldownTime = 2f;
     private float TimeCooldown = 0f;
 
@@ -22,9 +20,16 @@ public class Saw : MonoBehaviour
     public float selfRotationSpeed = 300f;
 
     private List<GameObject> saws = new List<GameObject>();
+    private Transform player;
 
     private void Start()
     {
+        if (GameManager.Instance != null && GameManager.Instance.playerInstance != null)
+        {
+            Transform playerTransform = GameManager.Instance.playerInstance.transform;
+            Transform playerModel = playerTransform.Find("PlayerModel");
+            player = playerModel != null ? playerModel : playerTransform;
+        }
         TimerActive = ActiveTime;
     }
 

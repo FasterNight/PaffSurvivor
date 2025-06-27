@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +14,9 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     public Slider healthBar;
-    public Slider xpBar;
+
+    public Image xpCircle;                // Image circulaire XP
+    public TextMeshProUGUI levelText;    // Texte niveau
 
     void Awake()
     {
@@ -34,11 +35,11 @@ public class GameManager : MonoBehaviour
         {
             playerInstance = Instantiate(playerPrefab, spawnPosition, Quaternion.identity);
 
-            // Injecte les références aux barres directement si le Player a un PlayerStats
             PlayerStats stats = playerInstance.GetComponent<PlayerStats>();
             if (stats != null)
             {
-                stats.InitializeBars(healthBar, xpBar);
+                stats.InitializeBars(healthBar, null);  // Pas de xpBar ici
+                stats.InitializeXPUI(xpCircle, levelText);
             }
         }
         else

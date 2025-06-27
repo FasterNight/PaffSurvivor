@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Références aux UI (injection via GameManager)
     private Slider healthBar;
     private Slider xpBar;
 
@@ -15,6 +15,12 @@ public class PlayerStats : MonoBehaviour
     public int currentXP = 0;
     public int xpToLevelUp = 100;
     public int playerLevel = 1;
+    public int attractRange = 5;
+
+    [Header("XP UI Circular")]
+    private Image xpCircle;
+    private TextMeshProUGUI levelText;
+
 
     void Start()
     {
@@ -23,13 +29,20 @@ public class PlayerStats : MonoBehaviour
         UpdateXPUI();
     }
 
-    // Appelée par le GameManager après l’instanciation
+    // Injection des barres de vie et xp sliders (existant)
     public void InitializeBars(Slider health, Slider xp)
     {
         healthBar = health;
         xpBar = xp;
-
         UpdateHealthUI();
+        UpdateXPUI();
+    }
+
+    // Nouvelle méthode pour injecter la UI XP circulaire
+    public void InitializeXPUI(Image circle, TextMeshProUGUI levelTxt)
+    {
+        xpCircle = circle;
+        levelText = levelTxt;
         UpdateXPUI();
     }
 
@@ -68,7 +81,7 @@ public class PlayerStats : MonoBehaviour
     void LevelUp()
     {
         playerLevel++;
-        xpToLevelUp += 50; // ou une formule plus dynamique
+        xpToLevelUp += 50;
         Debug.Log("Niveau augmenté ! Niveau actuel : " + playerLevel);
     }
 
@@ -82,18 +95,23 @@ public class PlayerStats : MonoBehaviour
     {
         if (xpBar != null)
             xpBar.value = (float)currentXP / xpToLevelUp;
+
+        if (xpCircle != null)
+            xpCircle.fillAmount = (float)currentXP / xpToLevelUp;
+
+        if (levelText != null)
+            levelText.text = playerLevel.ToString();
     }
 
     void Die()
     {
         Debug.Log("Le joueur est mort.");
-        // Tu peux désactiver le joueur ou déclencher une animation ici
         gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        UpdateHealthUI ();
-        UpdateXPUI ();
+        UpdateHealthUI();
+        UpdateXPUI();
     }
 }

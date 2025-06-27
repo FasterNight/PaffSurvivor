@@ -61,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
         Vector3 spawnPos = GetOffscreenPosition();
-        spawnPos.y = 0.05f;
+        spawnPos.y = 0.1f;
 
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
         activeEnemies.Add(enemy);

@@ -33,7 +33,7 @@ public class CameraFollow : MonoBehaviour
         {
             if (GameManager.Instance != null && GameManager.Instance.playerInstance != null)
             {
-                Transform model = GameManager.Instance.playerInstance.transform.Find("PlayerModel");
+                Transform model = GameManager.Instance.playerInstance.transform.Find("T_Pose");
                 if (model != null)
                 {
                     player = model;
