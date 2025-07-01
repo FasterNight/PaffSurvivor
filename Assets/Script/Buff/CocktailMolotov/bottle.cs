@@ -9,7 +9,6 @@ public class bottle : MonoBehaviour
     public GameObject area;
 
     public float TimeActive = 2f;
-    private float Time = 0f;
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,7 +20,9 @@ public class bottle : MonoBehaviour
 
     private void Activation()
     {
-        GameObject molotov = Instantiate(area, gameObject.transform.position, Quaternion.identity);
+        Quaternion rota = Quaternion.Euler(0f, 0f, 0f); // -90° sur X
+        GameObject molotov = Instantiate(area, gameObject.transform.position, rota);
         Destroy(gameObject);
     }
+
 }
