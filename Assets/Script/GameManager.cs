@@ -33,8 +33,15 @@ public class GameManager : MonoBehaviour
     {
         if (playerPrefab != null)
         {
-            playerInstance = Instantiate(playerPrefab, spawnPosition, Quaternion.identity);
+            // Cherche le GameObject "Player" dans la hiérarchie
+            Transform parent = GameObject.Find("Player")?.transform;
+            if (parent == null)
+                Debug.LogWarning("GameObject 'Player' non trouvé dans la hiérarchie.");
 
+            // Instancie le joueur comme enfant de "Player" (ou sans parent si introuvable)
+            playerInstance = Instantiate(playerPrefab, spawnPosition, Quaternion.identity, parent);
+
+            // Initialisation des stats et UI
             PlayerStats stats = playerInstance.GetComponent<PlayerStats>();
             if (stats != null)
             {
@@ -47,4 +54,5 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player prefab non assigné dans le GameManager.");
         }
     }
+
 }

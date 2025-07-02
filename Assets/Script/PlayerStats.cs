@@ -21,12 +21,17 @@ public class PlayerStats : MonoBehaviour
     private Image xpCircle;
     private TextMeshProUGUI levelText;
 
+    [Header("Level Up UI")]
+    public GameObject levelUpCanvas;
 
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
         UpdateXPUI();
+
+        if (levelUpCanvas == null)
+            Debug.LogWarning("levelUpCanvas n’est pas assigné !");
     }
 
     // Injection des barres de vie et xp sliders (existant)
@@ -83,6 +88,17 @@ public class PlayerStats : MonoBehaviour
         playerLevel++;
         xpToLevelUp += 50;
         Debug.Log("Niveau augmenté ! Niveau actuel : " + playerLevel);
+
+        Time.timeScale = 0f;
+
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Le LevelUpCanvas n’est pas assigné !");
+        }
     }
 
     void UpdateHealthUI()

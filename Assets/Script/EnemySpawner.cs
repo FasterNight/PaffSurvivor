@@ -18,6 +18,10 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+
+
+        Debug.Log("test");
+
         if (mainCamera == null)
             mainCamera = Camera.main;
 
@@ -63,7 +67,11 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPos = GetOffscreenPosition();
         spawnPos.y = 0.1f;
 
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+        Transform parent = GameObject.Find("Ennemie")?.transform;
+        if (parent == null)
+            Debug.LogWarning("GameObject 'Ennemie' non trouvé dans la hiérarchie.");
+
+        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity, parent);
         activeEnemies.Add(enemy);
 
         EnemyDeathNotifier deathNotifier = enemy.AddComponent<EnemyDeathNotifier>();

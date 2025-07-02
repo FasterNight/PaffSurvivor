@@ -25,7 +25,7 @@ public class XPSysteme : MonoBehaviour
         }
 
         // XP aléatoire
-        xpValue = Random.Range(1, 6); // entre 1 et 5 inclus
+        xpValue = Random.Range(1, 6); 
 
         // Direction initiale
         randomVelocity = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * Random.Range(1f, 3f);

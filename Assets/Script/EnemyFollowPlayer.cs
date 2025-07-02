@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
@@ -109,7 +107,7 @@ public class Zombie : MonoBehaviour
         rb.isKinematic = true; 
         if (animator) animator.SetBool("Dead", true);
 
-        int orbCount = Random.Range(0, 4); // 0 à 3 inclus
+        int orbCount = Random.Range(0, 4); 
 
         for (int i = 0; i < orbCount; i++)
         {
